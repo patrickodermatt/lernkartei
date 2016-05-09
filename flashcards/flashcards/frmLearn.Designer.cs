@@ -45,7 +45,11 @@
             // 
             // lvThemes
             // 
+            this.lvThemes.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.lvThemes.BackColor = System.Drawing.Color.White;
+            this.lvThemes.Cursor = System.Windows.Forms.Cursors.Default;
             this.lvThemes.Location = new System.Drawing.Point(12, 12);
+            this.lvThemes.MultiSelect = false;
             this.lvThemes.Name = "lvThemes";
             this.lvThemes.Size = new System.Drawing.Size(713, 278);
             this.lvThemes.TabIndex = 3;
