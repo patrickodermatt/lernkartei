@@ -15,6 +15,11 @@ namespace flashcards
         public Form1()
         {
             InitializeComponent();
+
+            using(var context = new Lernkartei_Entities())
+            {
+                
+            }
         }
     }
 }
