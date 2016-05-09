@@ -50,6 +50,7 @@
             this.lvThemes.Size = new System.Drawing.Size(713, 278);
             this.lvThemes.TabIndex = 3;
             this.lvThemes.UseCompatibleStateImageBehavior = false;
+            this.lvThemes.DoubleClick += new System.EventHandler(this.lvThemes_DoubleClick);
             // 
             // frmLearn
             // 
