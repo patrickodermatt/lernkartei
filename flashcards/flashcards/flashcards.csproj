@@ -211,6 +211,9 @@
       <DependentUpon>FlashCardsModel.edmx</DependentUpon>
       <LastGenOutput>FlashCardsModel.cs</LastGenOutput>
     </None>
+    <None Include="Lernkartei_DB.s3db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
