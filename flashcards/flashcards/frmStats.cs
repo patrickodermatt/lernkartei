@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace flashcards
 {
-    public partial class Form1 : Form
+    public partial class frmStats : Form
     {
-        public Form1()
+        public frmStats()
         {
             InitializeComponent();
+        }
 
-            using(var context = new Lernkartei_Entities())
-            {
-                
-            }
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Hide();
         }
     }
 }

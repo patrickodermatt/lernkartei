@@ -81,11 +81,65 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FlashCardsModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmLearn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmLearn.Designer.cs">
+      <DependentUpon>frmLearn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLearnCards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLearnCards.Designer.cs">
+      <DependentUpon>frmLearnCards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManage.Designer.cs">
+      <DependentUpon>frmManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManageTheme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageTheme.Designer.cs">
+      <DependentUpon>frmManageTheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewCard.Designer.cs">
+      <DependentUpon>frmNewCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewTheme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewTheme.Designer.cs">
+      <DependentUpon>frmNewTheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegister.Designer.cs">
+      <DependentUpon>frmRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStats.Designer.cs">
+      <DependentUpon>frmStats.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,6 +155,36 @@
     <Compile Include="TbTheme.cs">
       <DependentUpon>FlashCardsModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmLearn.resx">
+      <DependentUpon>frmLearn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLearnCards.resx">
+      <DependentUpon>frmLearnCards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManage.resx">
+      <DependentUpon>frmManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageTheme.resx">
+      <DependentUpon>frmManageTheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewCard.resx">
+      <DependentUpon>frmNewCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewTheme.resx">
+      <DependentUpon>frmNewTheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegister.resx">
+      <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStats.resx">
+      <DependentUpon>frmStats.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
