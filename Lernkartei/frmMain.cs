@@ -20,14 +20,17 @@ namespace Lernkartei
         private void btnLearn_Click(object sender, EventArgs e)
         {
             frmLearn learn = new frmLearn();
-            learn.Show(this);
             this.Hide();
+            if (learn.ShowDialog() == DialogResult.Cancel)
+                this.Show();
         }
 
         private void btnManage_Click(object sender, EventArgs e)
         {
             frmManage manage = new frmManage();
-            manage.Show();
+            this.Hide();
+            if (manage.ShowDialog() == DialogResult.Cancel)
+                this.Show();
         }
 
         private void btnStats_Click(object sender, EventArgs e)

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Lernkartei
 {
     public partial class frmLogin : Form
-    {
+    {        
         public frmLogin()
         {
             InitializeComponent();
@@ -19,11 +19,26 @@ namespace Lernkartei
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (true)
+            if (login())
             {
                 frmMain main = new frmMain();
-                main.Show();
-                this.Close();
+                this.Hide();
+                if (main.ShowDialog() == DialogResult.Cancel)
+                    this.Close();
+            }
+        }
+
+        private bool login()
+        {
+            switch (txtUsername.Text)
+            {
+                case "Admin":
+                    if (txtPassword.Text == "1234" || txtPassword.Text == "")
+                        return true;
+                    else
+                        return false;
+                default:
+                    return true;
             }
         }
 

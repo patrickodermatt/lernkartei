@@ -19,7 +19,8 @@ namespace Lernkartei
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.DialogResult = DialogResult.Cancel;
+            this.Hide();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
