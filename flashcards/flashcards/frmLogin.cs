@@ -19,6 +19,8 @@ namespace flashcards
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            
+
             if (login())
             {
                 frmMain main = new frmMain();
@@ -30,16 +32,20 @@ namespace flashcards
 
         private bool login()
         {
-            switch (txtUsername.Text)
-            {
-                case "Admin":
-                    if (txtPassword.Text == "1234" || txtPassword.Text == "")
-                        return true;
-                    else
-                        return false;
-                default:
-                    return true;
-            }
+            //using(var context = new Lernkartei_Entities())
+            //{
+            //    context.TbLogin.Add(new TbLogin { Password = "234", Username = "test" });
+            //    //List<TbLogin> person = context.TbLogin.Where(p => p.Username == this.txtUsername.Text).ToList();
+
+            //    //if(person.Password == this.txtPassword.Text)
+            //    //{
+            //    //    return true;
+            //    //}
+
+            //    return false;
+            //}
+
+            return true;
         }
 
         private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
