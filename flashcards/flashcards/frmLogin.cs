@@ -34,17 +34,24 @@ namespace flashcards
         {
             using(var context = new Lernkartei_Entities())
             {
-                var login = new TbLogin { Password = "234", Username = "test" , UserID = 1};
-                context.TbLogin.Add(login);
-                context.SaveChanges();
-                //List<TbLogin> person = context.TbLogin.Where(p => p.Username == this.txtUsername.Text).ToList();
+                TbLogin person = context.TbLogin.SingleOrDefault(p => p.Username == this.txtUsername.Text);
 
-                //if(person.Password == this.txtPassword.Text)
-                //{
-                //    return true;
-                //}
+                if(person == null)
+                {
+                    MessageBox.Show("User not found");
+                    return false;
+                }
 
-                return false;
+                if(person.Password == this.txtPassword.Text)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    MessageBox.Show("Password incorrect");
+                    return false;
+                }
             }
         }
 
