@@ -12,9 +12,12 @@ namespace flashcards
 {
     public partial class frmLearnCards : Form
     {
-        public frmLearnCards()
+        private string ThemeName;
+
+        public frmLearnCards(string ThemeName)
         {
             InitializeComponent();
+            this.ThemeName = ThemeName;
         }
 
         private void txtAnswer_KeyPress(object sender, KeyPressEventArgs e)
