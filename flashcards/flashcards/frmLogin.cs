@@ -19,8 +19,6 @@ namespace flashcards
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            
-
             if (login())
             {
                 frmMain main = new frmMain();
@@ -43,9 +41,7 @@ namespace flashcards
                 }
 
                 if(person.Password == this.txtPassword.Text)
-                {
                     return true;
-                }
 
                 else
                 {

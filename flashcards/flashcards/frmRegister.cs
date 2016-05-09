@@ -25,10 +25,20 @@ namespace flashcards
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            register();
             frmMain main = new frmMain();
             this.Hide();
             if (main.ShowDialog() == DialogResult.Cancel)
                 this.Close();
+        }
+
+        private void register()
+        {
+            using (var context = new Lernkartei_Entities())
+            {
+                context.TbLogin.Add(new TbLogin { UserID=3, Username = this.txtUsername.Text, Password = this.txtPassword.Text });
+                context.SaveChanges();
+            }
         }
 
         private void txt_KeyPress(object sender, KeyPressEventArgs e)
