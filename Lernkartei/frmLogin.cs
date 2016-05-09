@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Lernkartei
 {
     public partial class frmLogin : Form
-    {        
+    {
         public frmLogin()
         {
             InitializeComponent();
@@ -51,6 +51,12 @@ namespace Lernkartei
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnOk_Click(sender, e);
         }
     }
 }
