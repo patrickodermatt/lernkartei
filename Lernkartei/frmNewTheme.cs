@@ -27,5 +27,11 @@ namespace Lernkartei
         {
             this.Close();
         }
+
+        private void txtTitle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnOk_Click(sender, e);
+        }
     }
 }

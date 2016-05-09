@@ -16,5 +16,16 @@ namespace Lernkartei
         {
             InitializeComponent();
         }
+
+        private void txtAnswer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnOk_Click(sender, e);
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

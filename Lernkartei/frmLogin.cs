@@ -45,7 +45,9 @@ namespace Lernkartei
         private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmRegister register = new frmRegister();
-            register.Show();
+            this.Hide();
+            if (register.ShowDialog() == DialogResult.Cancel)
+                this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
