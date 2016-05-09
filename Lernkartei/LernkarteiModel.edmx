@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Lernkartei_DBModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\Users\Patrick_Odermatt1\Documents\lernkartei\Lernkartei\bin\Debug\Lernkartei_DB.s3db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TbCard">
+          <Key>
+            <PropertyRef Name="CardID" />
+          </Key>
+          <Property Name="CardID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Answer" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fk_ThemeID" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TbLogin">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TbProgress">
+          <Key>
+            <PropertyRef Name="ProgressID" />
+          </Key>
+          <Property Name="ProgressID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_CardID" Type="integer" Nullable="false" />
+          <Property Name="fk_UserID" Type="integer" Nullable="false" />
+          <Property Name="Level" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TbTheme">
+          <Key>
+            <PropertyRef Name="ThemeID" />
+          </Key>
+          <Property Name="ThemeID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ThemeName" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Lernkartei_DBModelStoreContainer">
+          <EntitySet Name="TbCard" EntityType="Self.TbCard" store:Type="Tables" />
+          <EntitySet Name="TbLogin" EntityType="Self.TbLogin" store:Type="Tables" />
+          <EntitySet Name="TbProgress" EntityType="Self.TbProgress" store:Type="Tables" />
+          <EntitySet Name="TbTheme" EntityType="Self.TbTheme" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Lernkartei_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TbCard">
+          <Key>
+            <PropertyRef Name="CardID" />
+          </Key>
+          <Property Name="CardID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fk_ThemeID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TbLogin">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TbProgress">
+          <Key>
+            <PropertyRef Name="ProgressID" />
+          </Key>
+          <Property Name="ProgressID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_CardID" Type="Int64" Nullable="false" />
+          <Property Name="fk_UserID" Type="Int64" Nullable="false" />
+          <Property Name="Level" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TbTheme">
+          <Key>
+            <PropertyRef Name="ThemeID" />
+          </Key>
+          <Property Name="ThemeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ThemeName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Lernkartei_DB_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TbCard" EntityType="Self.TbCard" />
+          <EntitySet Name="TbLogin" EntityType="Self.TbLogin" />
+          <EntitySet Name="TbProgress" EntityType="Self.TbProgress" />
+          <EntitySet Name="TbTheme" EntityType="Self.TbTheme" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Lernkartei_DBModelStoreContainer" CdmEntityContainer="Lernkartei_DB_Entities">
+          <EntitySetMapping Name="TbCard">
+            <EntityTypeMapping TypeName="Lernkartei_DBModel.TbCard">
+              <MappingFragment StoreEntitySet="TbCard">
+                <ScalarProperty Name="CardID" ColumnName="CardID" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="fk_ThemeID" ColumnName="fk_ThemeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TbLogin">
+            <EntityTypeMapping TypeName="Lernkartei_DBModel.TbLogin">
+              <MappingFragment StoreEntitySet="TbLogin">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TbProgress">
+            <EntityTypeMapping TypeName="Lernkartei_DBModel.TbProgress">
+              <MappingFragment StoreEntitySet="TbProgress">
+                <ScalarProperty Name="ProgressID" ColumnName="ProgressID" />
+                <ScalarProperty Name="fk_CardID" ColumnName="fk_CardID" />
+                <ScalarProperty Name="fk_UserID" ColumnName="fk_UserID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TbTheme">
+            <EntityTypeMapping TypeName="Lernkartei_DBModel.TbTheme">
+              <MappingFragment StoreEntitySet="TbTheme">
+                <ScalarProperty Name="ThemeID" ColumnName="ThemeID" />
+                <ScalarProperty Name="ThemeName" ColumnName="ThemeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
