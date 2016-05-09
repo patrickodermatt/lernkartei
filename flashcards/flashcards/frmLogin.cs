@@ -32,20 +32,20 @@ namespace flashcards
 
         private bool login()
         {
-            //using(var context = new Lernkartei_Entities())
-            //{
-            //    context.TbLogin.Add(new TbLogin { Password = "234", Username = "test" });
-            //    //List<TbLogin> person = context.TbLogin.Where(p => p.Username == this.txtUsername.Text).ToList();
+            using(var context = new Lernkartei_Entities())
+            {
+                var login = new TbLogin { Password = "234", Username = "test" , UserID = 1};
+                context.TbLogin.Add(login);
+                context.SaveChanges();
+                //List<TbLogin> person = context.TbLogin.Where(p => p.Username == this.txtUsername.Text).ToList();
 
-            //    //if(person.Password == this.txtPassword.Text)
-            //    //{
-            //    //    return true;
-            //    //}
+                //if(person.Password == this.txtPassword.Text)
+                //{
+                //    return true;
+                //}
 
-            //    return false;
-            //}
-
-            return true;
+                return false;
+            }
         }
 
         private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
