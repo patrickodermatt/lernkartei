@@ -31,8 +31,7 @@ namespace flashcards
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Hide();
+            this.Close();
         }
 
         private void lvThemes_DoubleClick(object sender, EventArgs e)
@@ -41,8 +40,8 @@ namespace flashcards
             {
                 ListViewItem selectedItem = lvThemes.SelectedItems[0];
                 frmLearnCards frmLearnCards = new frmLearnCards(selectedItem.Text);
-                frmLearnCards.Show();
                 this.Hide();
+                frmLearnCards.Show();
             }
         }
     }

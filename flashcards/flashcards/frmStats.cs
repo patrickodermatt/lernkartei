@@ -19,8 +19,7 @@ namespace flashcards
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Hide();
+            this.Close();
         }
     }
 }

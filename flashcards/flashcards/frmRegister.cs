@@ -19,7 +19,6 @@ namespace flashcards
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -28,8 +27,6 @@ namespace flashcards
             register();
             frmMain main = new frmMain();
             this.Hide();
-            if (main.ShowDialog() == DialogResult.Cancel)
-                this.Close();
         }
 
         private void register()

@@ -21,10 +21,10 @@ namespace flashcards
         {
             if (login())
             {
-                frmMain main = new frmMain();
                 this.Hide();
-                if (main.ShowDialog() == DialogResult.Cancel)
-                    this.Close();
+                frmMain frmMain = new frmMain();
+                frmMain.Closed += (s, args) => this.Close();
+                frmMain.Show();
             }
         }
 
@@ -55,8 +55,6 @@ namespace flashcards
         {
             frmRegister register = new frmRegister();
             this.Hide();
-            if (register.ShowDialog() == DialogResult.Cancel)
-                this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
