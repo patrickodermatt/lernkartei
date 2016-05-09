@@ -19,8 +19,8 @@ namespace Lernkartei
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmMain main = new frmMain();
-            main.Show();
+            this.DialogResult = DialogResult.Cancel;
+            this.Hide();
         }
     }
 }

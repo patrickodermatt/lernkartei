@@ -19,13 +19,22 @@ namespace Lernkartei
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             frmMain main = new frmMain();
-            main.Show();
+            this.Hide();
+            if (main.ShowDialog() == DialogResult.Cancel)
+                this.Close();
+        }
+
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnOk_Click(sender, e);
         }
     }
 }

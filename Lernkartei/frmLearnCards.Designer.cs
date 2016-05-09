@@ -43,6 +43,7 @@
             this.btnOk.TabIndex = 2;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // txtAnswer
             // 
@@ -51,6 +52,7 @@
             this.txtAnswer.Name = "txtAnswer";
             this.txtAnswer.Size = new System.Drawing.Size(712, 166);
             this.txtAnswer.TabIndex = 3;
+            this.txtAnswer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnswer_KeyPress);
             // 
             // lblQuestion
             // 
