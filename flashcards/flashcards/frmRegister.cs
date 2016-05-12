@@ -34,6 +34,8 @@ namespace flashcards
                         {
                             register();
                             frmMain main = new frmMain(txtUsername.Text);
+                            main.Closed += (s, args) => Application.Exit();
+                            main.Show();
                             this.Hide();
                         }
                         else
