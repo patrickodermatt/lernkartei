@@ -28,9 +28,19 @@ namespace flashcards
             {
                 if (txtPassword.Text != "" && txtPassword.Text != " ")
                 {
-                    register();
-                    frmMain main = new frmMain(txtUsername.Text);
-                    this.Hide();
+                    using (var context = new Lernkartei_Entities())
+                    {
+                        if (context.TbLogin.SingleOrDefault(u => u.Username == txtUsername.Text) == null)
+                        {
+                            register();
+                            frmMain main = new frmMain(txtUsername.Text);
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Username allready exists");
+                        }
+                    }
                 }
                 else
                 {

@@ -23,7 +23,7 @@ namespace flashcards
         {
             this.Hide();
             frmLearn frmLearn = new frmLearn(this.username);
-            frmLearn.Closed += (s, args) => this.Close();
+            frmLearn.Closed += (s, args) => this.Show();
             frmLearn.Show();
         }
 
@@ -31,7 +31,7 @@ namespace flashcards
         {
             this.Hide();
             frmManage frmManage = new frmManage(this.username);
-            frmManage.Closed += (s, args) => this.Close();
+            frmManage.Closed += (s, args) => this.Show();
             frmManage.Show();
         }
 
@@ -39,7 +39,7 @@ namespace flashcards
         {
             this.Hide();
             frmStats frmStats = new frmStats(this.username);
-            frmStats.Closed += (s, args) => this.Close();
+            frmStats.Closed += (s, args) => this.Show();
             frmStats.Show();
         }
     }

@@ -55,7 +55,7 @@ namespace flashcards
         {
             this.Hide();
             frmRegister register = new frmRegister();
-            register.Closed += (s, args) => this.Close();
+            register.Closed += (s, args) => this.Show();
             register.Show();
         }
 
