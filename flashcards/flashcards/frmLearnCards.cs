@@ -13,49 +13,28 @@ namespace flashcards
     public partial class frmLearnCards : Form
     {
         private string themeName;
-        private List<TbCard> cardList;
         private string username;
+        private string question;
+        private string answer;
+        private long level;
+        private long progressID;
 
-        public frmLearnCards(string themeName, string username)
+        public frmLearnCards(string themeName, string username , string question, string answer, long level, long progressID)
         {
             InitializeComponent();
-            this.cardList = new List<TbCard>();
             this.themeName = themeName;
             this.username = username;
+            this.question = question;
+            this.answer = answer;
+            this.level = level;
+            this.progressID = progressID;
             this.SetFields();
         }
 
         private void SetFields()
         {
             this.Text = this.themeName;
-
-            using (var context = new Lernkartei_Entities())
-            {
-                foreach(TbCard card in context.TbCard)
-                {
-                    cardList.Add(card);
-                }
-
-                long minLvls = (from p in context.TbProgress
-                    join l in context.TbLogin on p.fk_UserID equals l.UserID
-                    join c in context.TbCard on p.fk_CardID equals c.CardID
-                    join t in context.TbTheme on c.fk_ThemeID equals t.ThemeID
-                    where l.Username == this.username
-                    where t.ThemeName == this.themeName
-                    orderby p.Level ascending
-                    select p.Level).First();
-
-
-                //var results = 
-                    
-                //    from p in context.TbProgress
-                //    join l in context.TbLogin on p.fk_UserID equals l.UserID
-                //    join c in context.TbCard on p.fk_CardID equals c.CardID
-                //    where l.Username == this.username
-                //    where p.Level 
-
-
-            }
+            this.lblQuestion.Text = this.question;
         }
 
         private void txtAnswer_KeyPress(object sender, KeyPressEventArgs e)
