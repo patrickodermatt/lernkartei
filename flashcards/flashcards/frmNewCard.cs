@@ -14,11 +14,28 @@ namespace flashcards
     {
         private string username;
         private TbTheme theme;
+        private TbCard card;
+
         public frmNewCard(string user, TbTheme theme)
         {
             InitializeComponent();
             this.username = user;
             this.theme = theme;
+        }
+
+        public frmNewCard(string user, TbTheme theme, TbCard card)
+        {
+            InitializeComponent();
+            this.username = user;
+            this.theme = theme;
+            this.card = card;
+            this.SetFields();
+        }
+
+        private void SetFields()
+        {
+            txtQuestion.Text = this.card.Question;
+            txtAnswer.Text = this.card.Answer;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -27,25 +44,13 @@ namespace flashcards
             {
                 if (txtQuestion.Text != "" && txtQuestion.Text != " ")
                 {
-                    TbCard newCard = new TbCard();
-                    newCard.Question = txtQuestion.Text;
-                    newCard.Answer = txtAnswer.Text;
-                    newCard.fk_ThemeID = this.theme.ThemeID;
-
-                    using (var context = new Lernkartei_Entities())
+                    if (this.card == null)
                     {
-                        context.TbCard.Add(newCard);
-
-                        foreach (TbLogin user in context.TbLogin)
-                        {
-                            TbProgress progress = new TbProgress();
-                            progress.fk_UserID = user.UserID;
-                            progress.fk_CardID = newCard.CardID;
-                            progress.Level = 0;
-                            context.TbProgress.Add(progress);
-                        }
-
-                        context.SaveChanges();
+                        createCard();
+                    }
+                    else
+                    {
+                        updateCard();
                     }
                     this.Close();
                 }
@@ -69,6 +74,41 @@ namespace flashcards
         {
             if (e.KeyChar == 13)
                 btnOk_Click(sender, e);
+        }
+
+        private void createCard()
+        {
+            this.card = new TbCard();
+            card.Question = txtQuestion.Text;
+            card.Answer = txtAnswer.Text;
+            card.fk_ThemeID = this.theme.ThemeID;
+
+            using (var context = new Lernkartei_Entities())
+            {
+                context.TbCard.Add(card);
+
+                foreach (TbLogin user in context.TbLogin)
+                {
+                    TbProgress progress = new TbProgress();
+                    progress.fk_UserID = user.UserID;
+                    progress.fk_CardID = card.CardID;
+                    progress.Level = 0;
+                    context.TbProgress.Add(progress);
+                }
+                context.SaveChanges();
+            }
+        }
+
+        private void updateCard()
+        {
+            using (var context = new Lernkartei_Entities())
+            {
+                this.card = context.TbCard.Single(p => p.CardID == this.card.CardID);
+                card.Question = txtQuestion.Text;
+                card.Answer = txtAnswer.Text;
+                card.fk_ThemeID = this.theme.ThemeID;
+                context.SaveChanges();
+            }
         }
     }
 }
