@@ -46,9 +46,16 @@ namespace flashcards
         private void btnNew_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmNewCard newCard = new frmNewCard(this.username);
-            newCard.Closed += (s, args) => this.Show();
+            frmNewCard newCard = new frmNewCard(this.username ,this.theme);
+            newCard.Closed += (s, args) => comeBackFromNewCard();
             newCard.Show();
+        }
+
+        private void comeBackFromNewCard()
+        {
+            lvCards.Items.Clear();
+            ShowCards();
+            this.Show();
         }
     }
 }
