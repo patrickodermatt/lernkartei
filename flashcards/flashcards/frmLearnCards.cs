@@ -52,8 +52,12 @@ namespace flashcards
                 using (var context = new Lernkartei_Entities())
                 {
                     TbProgress progress = context.TbProgress.SingleOrDefault(p => p.ProgressID == this.progressID);
-                    progress.Level ++;
-                    context.SaveChanges();
+
+                    if(progress.Level < 7) //max Level = 7
+                    {
+                        progress.Level++;
+                        context.SaveChanges();
+                    }
                 }
             }
 
