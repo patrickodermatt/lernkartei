@@ -48,11 +48,14 @@
             // 
             // lvThemes
             // 
+            this.lvThemes.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.lvThemes.Location = new System.Drawing.Point(13, 64);
+            this.lvThemes.MultiSelect = false;
             this.lvThemes.Name = "lvThemes";
             this.lvThemes.Size = new System.Drawing.Size(712, 226);
             this.lvThemes.TabIndex = 3;
             this.lvThemes.UseCompatibleStateImageBehavior = false;
+            this.lvThemes.DoubleClick += new System.EventHandler(this.lvThemes_DoubleClick);
             // 
             // btnNew
             // 
@@ -85,6 +88,7 @@
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmManage
             // 

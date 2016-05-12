@@ -49,7 +49,9 @@
             // 
             // lvCards
             // 
+            this.lvCards.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.lvCards.Location = new System.Drawing.Point(13, 106);
+            this.lvCards.MultiSelect = false;
             this.lvCards.Name = "lvCards";
             this.lvCards.Size = new System.Drawing.Size(712, 184);
             this.lvCards.TabIndex = 3;

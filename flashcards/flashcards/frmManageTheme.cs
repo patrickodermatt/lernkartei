@@ -13,22 +13,49 @@ namespace flashcards
     public partial class frmManageTheme : Form
     {
         private string username;
-        public frmManageTheme(string user)
+        private TbTheme theme;
+        public frmManageTheme(string user, TbTheme theme)
         {
             InitializeComponent();
             this.username = user;
+            this.theme = theme;
+            lblTheme.Text = theme.ThemeName;
+            ShowCards();
+        }
+
+        private void ShowCards()
+        {
+            using (var context = new Lernkartei_Entities())
+            {
+                List<TbCard> cards = (from c in context.TbCard
+                                    where c.fk_ThemeID == this.theme.ThemeID
+                                    select c).ToList();
+
+                foreach (TbCard card in cards)
+                {
+                    this.lvCards.Items.Add(card.Question, card.Answer);
+                }
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmManage manage = new frmManage(this.username);
-            manage.Show();
+            this.Close();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            frmNewCard newCard = new frmNewCard(this.username);
+            this.Hide();
+            frmNewCard newCard = new frmNewCard(this.username ,this.theme);
+            newCard.Closed += (s, args) => comeBackFromNewCard();
             newCard.Show();
+        }
+
+        private void comeBackFromNewCard()
+        {
+            lvCards.Items.Clear();
+            ShowCards();
+            this.Show();
         }
     }
 }
