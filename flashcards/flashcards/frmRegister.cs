@@ -24,9 +24,22 @@ namespace flashcards
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            register();
-            frmMain main = new frmMain();
-            this.Hide();
+            if (txtUsername.Text != "" && txtUsername.Text != " ")
+            {
+                if (txtPassword.Text != "" && txtPassword.Text != " ")
+                {
+                    register();
+                    frmMain main = new frmMain(txtUsername.Text);
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Password");
+                }
+            }
+            else{
+                MessageBox.Show("Invalid Username");
+            }
         }
 
         private void register()

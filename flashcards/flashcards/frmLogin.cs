@@ -22,7 +22,7 @@ namespace flashcards
             if (login())
             {
                 this.Hide();
-                frmMain frmMain = new frmMain();
+                frmMain frmMain = new frmMain(txtUsername.Text);
                 frmMain.Closed += (s, args) => this.Close();
                 frmMain.Show();
             }
@@ -53,8 +53,10 @@ namespace flashcards
 
         private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmRegister register = new frmRegister();
             this.Hide();
+            frmRegister register = new frmRegister();
+            register.Closed += (s, args) => this.Close();
+            register.Show();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -12,9 +12,11 @@ namespace flashcards
 {
     public partial class frmLearn : Form
     {
-        public frmLearn()
+        private string username;
+        public frmLearn(string user)
         {
             InitializeComponent();
+            this.username = user;
             ShowThemes();
         }
 
@@ -39,7 +41,7 @@ namespace flashcards
             if(lvThemes.SelectedItems[0] != null)
             {
                 ListViewItem selectedItem = lvThemes.SelectedItems[0];
-                frmLearnCards frmLearnCards = new frmLearnCards(selectedItem.Text);
+                frmLearnCards frmLearnCards = new frmLearnCards(selectedItem.Text, this.username);
                 this.Hide();
                 frmLearnCards.Show();
             }

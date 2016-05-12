@@ -12,9 +12,11 @@ namespace flashcards
 {
     public partial class frmStats : Form
     {
-        public frmStats()
+        private string username;
+        public frmStats(string user)
         {
             InitializeComponent();
+            this.username = user;
         }
 
         private void btnBack_Click(object sender, EventArgs e)

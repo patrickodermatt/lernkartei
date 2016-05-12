@@ -12,9 +12,11 @@ namespace flashcards
 {
     public partial class frmManage : Form
     {
-        public frmManage()
+        private string username;
+        public frmManage(string user)
         {
             InitializeComponent();
+            this.username = user;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -24,13 +26,13 @@ namespace flashcards
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            frmNewTheme newTheme = new frmNewTheme();
+            frmNewTheme newTheme = new frmNewTheme(this.username);
             newTheme.Show();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            frmManageTheme manageTheme = new frmManageTheme();
+            frmManageTheme manageTheme = new frmManageTheme(this.username);
             manageTheme.Show();
         }
     }

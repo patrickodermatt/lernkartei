@@ -12,14 +12,16 @@ namespace flashcards
 {
     public partial class frmNewTheme : Form
     {
-        public frmNewTheme()
+        private string username;
+        public frmNewTheme(string user)
         {
             InitializeComponent();
+            this.username = user;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            frmManage manage = new frmManage();
+            frmManage manage = new frmManage(this.username);
             manage.Show();
         }
 
