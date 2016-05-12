@@ -28,8 +28,8 @@ namespace flashcards
             using (var context = new Lernkartei_Entities())
             {
                 List<TbCard> cards = (from c in context.TbCard
-                                    where c.fk_ThemeID == this.theme.ThemeID
-                                    select c).ToList();
+                                      where c.fk_ThemeID == this.theme.ThemeID
+                                      select c).ToList();
 
                 foreach (TbCard card in cards)
                 {
@@ -46,16 +46,66 @@ namespace flashcards
         private void btnNew_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmNewCard newCard = new frmNewCard(this.username ,this.theme);
-            newCard.Closed += (s, args) => comeBackFromNewCard();
+            frmNewCard newCard = new frmNewCard(this.username, this.theme);
+            newCard.Closed += (s, args) => comeBackFromCard();
             newCard.Show();
         }
 
-        private void comeBackFromNewCard()
+        private void comeBackFromCard()
         {
             lvCards.Items.Clear();
             ShowCards();
             this.Show();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (lvCards.SelectedItems[0] != null)
+            {
+                TbCard card;
+                string question = lvCards.SelectedItems[0].Text;
+                using (var context = new Lernkartei_Entities())
+                {
+                    card = context.TbCard.Single(x => x.Question == question);
+                }
+                this.Hide();
+                frmNewCard newCard = new frmNewCard(this.username, this.theme, card);
+                newCard.Closed += (s, args) => comeBackFromCard();
+                newCard.Show();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (lvCards.SelectedItems[0] != null)
+            {
+                DialogResult result = MessageBox.Show("Sure?", "Delete Card", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    string question = lvCards.SelectedItems[0].Text;
+
+                    using (var context = new Lernkartei_Entities())
+                    {
+                        TbCard card = context.TbCard.Single(x => x.Question == question);
+
+                        foreach (TbLogin user in context.TbLogin)
+                        {
+                            TbProgress progress = context.TbProgress.Single(x => x.fk_UserID == user.UserID && x.fk_CardID == card.CardID);
+                            context.TbProgress.Remove(progress);
+                        }
+                        context.TbCard.Remove(card);
+                        context.SaveChanges();
+                    }
+                    lvCards.Items.Clear();
+                    ShowCards();
+                }
+            }
+        }
+
+        private void lvCards_DoubleClick(object sender, EventArgs e)
+        {
+            btnEdit_Click(sender, e);
         }
     }
 }

@@ -56,6 +56,7 @@
             this.lvCards.Size = new System.Drawing.Size(712, 184);
             this.lvCards.TabIndex = 3;
             this.lvCards.UseCompatibleStateImageBehavior = false;
+            this.lvCards.DoubleClick += new System.EventHandler(this.lvCards_DoubleClick);
             // 
             // btnNew
             // 
@@ -77,6 +78,7 @@
             this.btnEdit.TabIndex = 5;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -87,6 +89,7 @@
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lblTheme
             // 
