@@ -14,8 +14,17 @@ namespace flashcards
     
     public partial class TbLogin
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TbLogin()
+        {
+            this.TbProgress = new HashSet<TbProgress>();
+        }
+    
         public long UserID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TbProgress> TbProgress { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Lernkartei_Model.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\Users\Patrick_Odermatt1\Documents\lernkartei\flashcards\flashcards\Lernkartei_DB.s3db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Lernkartei_Model.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\Users\Patrick_Odermatt1\Documents\lernkartei\flashcards\flashcards\Lernkartei_DB.s3db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TbCard">
           <Key>
             <PropertyRef Name="CardID" />
@@ -38,14 +38,61 @@
           <Property Name="ThemeID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ThemeName" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
+        <Association Name="FK_TbCard_0_0">
+          <End Role="TbTheme" Type="Self.TbTheme" Multiplicity="1" />
+          <End Role="TbCard" Type="Self.TbCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TbTheme">
+              <PropertyRef Name="ThemeID" />
+            </Principal>
+            <Dependent Role="TbCard">
+              <PropertyRef Name="fk_ThemeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TbProgress_0_0">
+          <End Role="TbLogin" Type="Self.TbLogin" Multiplicity="1" />
+          <End Role="TbProgress" Type="Self.TbProgress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TbLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TbProgress">
+              <PropertyRef Name="fk_UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TbProgress_1_0">
+          <End Role="TbCard" Type="Self.TbCard" Multiplicity="1" />
+          <End Role="TbProgress" Type="Self.TbProgress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TbCard">
+              <PropertyRef Name="CardID" />
+            </Principal>
+            <Dependent Role="TbProgress">
+              <PropertyRef Name="fk_CardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Lernkartei_ModelStoreContainer">
           <EntitySet Name="TbCard" EntityType="Self.TbCard" store:Type="Tables" />
           <EntitySet Name="TbLogin" EntityType="Self.TbLogin" store:Type="Tables" />
           <EntitySet Name="TbProgress" EntityType="Self.TbProgress" store:Type="Tables" />
           <EntitySet Name="TbTheme" EntityType="Self.TbTheme" store:Type="Tables" />
+          <AssociationSet Name="FK_TbCard_0_0" Association="Self.FK_TbCard_0_0">
+            <End Role="TbTheme" EntitySet="TbTheme" />
+            <End Role="TbCard" EntitySet="TbCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TbProgress_0_0" Association="Self.FK_TbProgress_0_0">
+            <End Role="TbLogin" EntitySet="TbLogin" />
+            <End Role="TbProgress" EntitySet="TbProgress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TbProgress_1_0" Association="Self.FK_TbProgress_1_0">
+            <End Role="TbCard" EntitySet="TbCard" />
+            <End Role="TbProgress" EntitySet="TbProgress" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Lernkartei_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -57,6 +104,8 @@
           <Property Name="Question" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Answer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fk_ThemeID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="TbTheme" Relationship="Lernkartei_Model.FK_TbCard_0_0" FromRole="TbCard" ToRole="TbTheme" />
+          <NavigationProperty Name="TbProgress" Relationship="Lernkartei_Model.FK_TbProgress_1_0" FromRole="TbCard" ToRole="TbProgress" />
         </EntityType>
         <EntityType Name="TbLogin">
           <Key>
@@ -65,6 +114,7 @@
           <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TbProgress" Relationship="Lernkartei_Model.FK_TbProgress_0_0" FromRole="TbLogin" ToRole="TbProgress" />
         </EntityType>
         <EntityType Name="TbProgress">
           <Key>
@@ -74,6 +124,8 @@
           <Property Name="fk_CardID" Type="Int64" Nullable="false" />
           <Property Name="fk_UserID" Type="Int64" Nullable="false" />
           <Property Name="Level" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="TbCard" Relationship="Lernkartei_Model.FK_TbProgress_1_0" FromRole="TbProgress" ToRole="TbCard" />
+          <NavigationProperty Name="TbLogin" Relationship="Lernkartei_Model.FK_TbProgress_0_0" FromRole="TbProgress" ToRole="TbLogin" />
         </EntityType>
         <EntityType Name="TbTheme">
           <Key>
@@ -81,13 +133,62 @@
           </Key>
           <Property Name="ThemeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ThemeName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TbCard" Relationship="Lernkartei_Model.FK_TbCard_0_0" FromRole="TbTheme" ToRole="TbCard" />
         </EntityType>
         <EntityContainer Name="Lernkartei_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TbCard" EntityType="Self.TbCard" />
           <EntitySet Name="TbLogin" EntityType="Self.TbLogin" />
           <EntitySet Name="TbProgress" EntityType="Self.TbProgress" />
           <EntitySet Name="TbTheme" EntityType="Self.TbTheme" />
+          <AssociationSet Name="FK_TbCard_0_0" Association="Lernkartei_Model.FK_TbCard_0_0">
+            <End Role="TbTheme" EntitySet="TbTheme" />
+            <End Role="TbCard" EntitySet="TbCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TbProgress_1_0" Association="Lernkartei_Model.FK_TbProgress_1_0">
+            <End Role="TbCard" EntitySet="TbCard" />
+            <End Role="TbProgress" EntitySet="TbProgress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TbProgress_0_0" Association="Lernkartei_Model.FK_TbProgress_0_0">
+            <End Role="TbLogin" EntitySet="TbLogin" />
+            <End Role="TbProgress" EntitySet="TbProgress" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_TbCard_0_0">
+          <End Type="Lernkartei_Model.TbTheme" Role="TbTheme" Multiplicity="1" />
+          <End Type="Lernkartei_Model.TbCard" Role="TbCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TbTheme">
+              <PropertyRef Name="ThemeID" />
+            </Principal>
+            <Dependent Role="TbCard">
+              <PropertyRef Name="fk_ThemeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TbProgress_1_0">
+          <End Type="Lernkartei_Model.TbCard" Role="TbCard" Multiplicity="1" />
+          <End Type="Lernkartei_Model.TbProgress" Role="TbProgress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TbCard">
+              <PropertyRef Name="CardID" />
+            </Principal>
+            <Dependent Role="TbProgress">
+              <PropertyRef Name="fk_CardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TbProgress_0_0">
+          <End Type="Lernkartei_Model.TbLogin" Role="TbLogin" Multiplicity="1" />
+          <End Type="Lernkartei_Model.TbProgress" Role="TbProgress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TbLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TbProgress">
+              <PropertyRef Name="fk_UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

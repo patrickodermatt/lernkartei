@@ -6,9 +6,12 @@
     <edmx:Diagrams>
       <Diagram DiagramId="b2990ddf7788456fb7a5623ecc2bf0cc" Name="Diagram1">
         <EntityTypeShape EntityType="Lernkartei_Model.TbCard" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Lernkartei_Model.TbLogin" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Lernkartei_Model.TbProgress" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Lernkartei_Model.TbTheme" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Lernkartei_Model.TbLogin" Width="1.5" PointX="7.375" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Lernkartei_Model.TbProgress" Width="1.5" PointX="2.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Lernkartei_Model.TbTheme" Width="1.5" PointX="5.625" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="Lernkartei_Model.FK_TbCard_0_0" />
+        <AssociationConnector Association="Lernkartei_Model.FK_TbProgress_1_0" />
+        <AssociationConnector Association="Lernkartei_Model.FK_TbProgress_0_0" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

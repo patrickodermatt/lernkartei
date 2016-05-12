@@ -18,5 +18,8 @@ namespace flashcards
         public long fk_CardID { get; set; }
         public long fk_UserID { get; set; }
         public long Level { get; set; }
+    
+        public virtual TbCard TbCard { get; set; }
+        public virtual TbLogin TbLogin { get; set; }
     }
 }

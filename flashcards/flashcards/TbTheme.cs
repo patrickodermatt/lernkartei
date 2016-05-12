@@ -14,7 +14,16 @@ namespace flashcards
     
     public partial class TbTheme
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TbTheme()
+        {
+            this.TbCard = new HashSet<TbCard>();
+        }
+    
         public long ThemeID { get; set; }
         public string ThemeName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TbCard> TbCard { get; set; }
     }
 }
