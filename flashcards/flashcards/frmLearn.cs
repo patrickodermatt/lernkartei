@@ -44,8 +44,6 @@ namespace flashcards
             {
                 ListViewItem selectedItem = lvThemes.SelectedItems[0];
 
-
-
                 using (var context = new Lernkartei_Entities())
                 {
                     long minLvls = (from p in context.TbProgress
@@ -57,7 +55,6 @@ namespace flashcards
                         orderby p.Level ascending
                         select p.Level).First();
 
-
                     this.listOfCards = (from p in context.TbProgress
                         join l in context.TbLogin on p.fk_UserID equals l.UserID
                         join c in context.TbCard on p.fk_CardID equals c.CardID
@@ -66,7 +63,6 @@ namespace flashcards
                         where p.Level == minLvls
                         where t.ThemeName == selectedItem.Text
                         select p).ToList();
-
 
                     this.Hide();
                     openCards(selectedItem.Text);
