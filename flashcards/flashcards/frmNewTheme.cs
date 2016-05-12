@@ -21,8 +21,21 @@ namespace flashcards
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            frmManage manage = new frmManage(this.username);
-            manage.Show();
+            if (txtTitle.Text != "" && txtTitle.Text != " ")
+            {
+                using (var context = new Lernkartei_Entities())
+                {
+                    TbTheme newTheme = new TbTheme();
+                    newTheme.ThemeName = txtTitle.Text;
+                    context.TbTheme.Add(newTheme);
+                    context.SaveChanges();
+                }
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Empty Title");
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

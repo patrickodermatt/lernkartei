@@ -40,7 +40,7 @@ namespace flashcards
         {
             this.Hide();
             frmNewTheme newTheme = new frmNewTheme(this.username);
-            newTheme.Closed += (s, args) => this.Show();
+            newTheme.Closed += (s, args) => comeBackFromNewTheme();
             newTheme.Show();
         }
 
@@ -101,6 +101,13 @@ namespace flashcards
                     ShowThemes();
                 }
             }
+        }
+
+        private void comeBackFromNewTheme()
+        {
+            lvThemes.Items.Clear();
+            ShowThemes();
+            this.Show();
         }
     }
 }
