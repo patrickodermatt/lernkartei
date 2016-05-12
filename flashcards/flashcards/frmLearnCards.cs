@@ -33,7 +33,7 @@ namespace flashcards
 
         private void SetFields()
         {
-            this.Text = this.themeName;
+            this.Text = this.themeName + " Level: " + this.level;
             this.lblQuestion.Text = this.question;
         }
 
@@ -45,7 +45,24 @@ namespace flashcards
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            if(this.txtAnswer.Text == this.answer)
+            {
+                MessageBox.Show(this.txtAnswer.Text + " is correct!", "Correct Answer");
 
+                using (var context = new Lernkartei_Entities())
+                {
+                    TbProgress progress = context.TbProgress.SingleOrDefault(p => p.ProgressID == this.progressID);
+                    progress.Level ++;
+                    context.SaveChanges();
+                }
+            }
+
+            else
+            {
+                MessageBox.Show(this.txtAnswer.Text + " is not correct!" + Environment.NewLine + "The correct answer is: " + this.answer, "Incorrect Answer");
+            }
+
+            this.Close();
         }
     }
 }
