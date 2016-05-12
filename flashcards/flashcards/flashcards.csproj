@@ -156,6 +156,9 @@
     <Compile Include="TbTheme.cs">
       <DependentUpon>FlashCardsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="VerticalProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="frmLearn.resx">
       <DependentUpon>frmLearn.cs</DependentUpon>
     </EmbeddedResource>
