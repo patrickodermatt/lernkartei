@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace flashcards
 {
-    public partial class frmNewCard : Form
+    public partial class frmNewCard : MetroFramework.Forms.MetroForm
     {
         private string username;
         private TbTheme theme;
@@ -34,15 +34,15 @@ namespace flashcards
 
         private void SetFields()
         {
-            txtQuestion.Text = this.card.Question;
-            txtAnswer.Text = this.card.Answer;
+            txtQuestion2.Text = this.card.Question;
+            txtAnswer2.Text = this.card.Answer;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (txtQuestion.Text != "" && txtQuestion.Text != " ")
+            if (txtQuestion2.Text != "" && txtQuestion2.Text != " ")
             {
-                if (txtQuestion.Text != "" && txtQuestion.Text != " ")
+                if (txtQuestion2.Text != "" && txtQuestion2.Text != " ")
                 {
                     if (this.card == null)
                     {
@@ -79,8 +79,8 @@ namespace flashcards
         private void createCard()
         {
             this.card = new TbCard();
-            card.Question = txtQuestion.Text;
-            card.Answer = txtAnswer.Text;
+            card.Question = txtQuestion2.Text;
+            card.Answer = txtAnswer2.Text;
             card.fk_ThemeID = this.theme.ThemeID;
 
             using (var context = new Lernkartei_Entities())
@@ -101,8 +101,8 @@ namespace flashcards
             using (var context = new Lernkartei_Entities())
             {
                 this.card = context.TbCard.Single(p => p.CardID == this.card.CardID);
-                card.Question = txtQuestion.Text;
-                card.Answer = txtAnswer.Text;
+                card.Question = txtQuestion2.Text;
+                card.Answer = txtAnswer2.Text;
                 card.fk_ThemeID = this.theme.ThemeID;
                 context.SaveChanges();
             }

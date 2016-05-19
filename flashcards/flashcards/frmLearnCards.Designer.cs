@@ -69,7 +69,7 @@
             this.txtAnswer.Name = "txtAnswer";
             this.txtAnswer.Size = new System.Drawing.Size(712, 166);
             this.txtAnswer.TabIndex = 9;
-            this.txtAnswer.Text = "metroTextBox1";
+            this.txtAnswer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnswer_KeyPress);
             // 
             // frmLearnCards
             // 
