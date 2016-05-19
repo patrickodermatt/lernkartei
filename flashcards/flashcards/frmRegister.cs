@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace flashcards
 {
-    public partial class frmRegister : Form
+    public partial class frmRegister : MetroFramework.Forms.MetroForm
     {
         public frmRegister()
         {
