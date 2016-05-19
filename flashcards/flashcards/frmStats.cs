@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Controls;
 
 namespace flashcards
 {
@@ -17,7 +18,6 @@ namespace flashcards
         {
             InitializeComponent();
             this.username = user;
-            this.Text = "Stats for user " + username;
             this.ShowStats();
             this.Controls[1].Select();
         }
@@ -26,7 +26,7 @@ namespace flashcards
         {
             using (var context = new Lernkartei_Entities())
             {
-                Label lblName = new Label();
+                MetroLabel lblName = new MetroLabel();
                 lblName.Text = "learning progress for user " + username;
                 lblName.AutoSize = true;
                 lblName.Font = new Font("Arial", 25);
@@ -45,7 +45,7 @@ namespace flashcards
                         where t.ThemeName == theme.ThemeName
                         select c).Count();
 
-                    Label lblTheme = new Label();
+                    MetroLabel lblTheme = new MetroLabel();
                     lblTheme.Text = theme.ThemeName;
                     lblTheme.Location = new System.Drawing.Point(100, themeNameOffset);
                     themeNameOffset = themeNameOffset + 200;                    
@@ -78,7 +78,7 @@ namespace flashcards
                         verticalProgressBar.Location = new System.Drawing.Point(cardOffset, themeNameOffset - 170);
                         this.Controls.Add(verticalProgressBar);
 
-                        Label lblLevel = new Label();
+                        MetroLabel lblLevel = new MetroLabel();
                         lblLevel.Text = Convert.ToString(i);
                         lblLevel.AutoSize = true;
                         lblLevel.Location = new System.Drawing.Point(cardOffset + 6, themeNameOffset - 65);
@@ -87,7 +87,7 @@ namespace flashcards
                     }
                 }
 
-                Button button = new Button();
+                MetroButton button = new MetroButton();
                 button.Text = "Back";
                 button.Location = new System.Drawing.Point(100, themeNameOffset);
                 button.Width = 555;

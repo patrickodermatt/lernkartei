@@ -35,11 +35,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(800, 561);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(800, 1500);
-            this.MinimumSize = new System.Drawing.Size(800, 0);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 39);
             this.Name = "frmStats";
-            this.Text = "Flashcards Administration";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
 
         }
