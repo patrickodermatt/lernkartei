@@ -28,51 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new System.Windows.Forms.Button();
             this.lvThemes = new System.Windows.Forms.ListView();
+            this.btnBack = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
-            // 
-            // btnBack
-            // 
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(12, 305);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(713, 34);
-            this.btnBack.TabIndex = 2;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // lvThemes
             // 
             this.lvThemes.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.lvThemes.BackColor = System.Drawing.Color.White;
             this.lvThemes.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lvThemes.Location = new System.Drawing.Point(12, 12);
+            this.lvThemes.Location = new System.Drawing.Point(12, 28);
             this.lvThemes.MultiSelect = false;
             this.lvThemes.Name = "lvThemes";
-            this.lvThemes.Size = new System.Drawing.Size(713, 278);
+            this.lvThemes.Size = new System.Drawing.Size(713, 262);
             this.lvThemes.TabIndex = 3;
             this.lvThemes.UseCompatibleStateImageBehavior = false;
             this.lvThemes.DoubleClick += new System.EventHandler(this.lvThemes_DoubleClick);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(12, 302);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(713, 34);
+            this.btnBack.TabIndex = 4;
+            this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // frmLearn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(737, 350);
-            this.Controls.Add(this.lvThemes);
             this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.lvThemes);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLearn";
-            this.Text = "Flashcards Administration";
+            this.Resizable = false;
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ListView lvThemes;
+        private MetroFramework.Controls.MetroButton btnBack;
 
 
 

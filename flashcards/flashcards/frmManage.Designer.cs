@@ -39,17 +39,17 @@
             // lvThemes
             // 
             this.lvThemes.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.lvThemes.Location = new System.Drawing.Point(13, 64);
+            this.lvThemes.Location = new System.Drawing.Point(13, 73);
             this.lvThemes.MultiSelect = false;
             this.lvThemes.Name = "lvThemes";
-            this.lvThemes.Size = new System.Drawing.Size(712, 226);
+            this.lvThemes.Size = new System.Drawing.Size(712, 217);
             this.lvThemes.TabIndex = 3;
             this.lvThemes.UseCompatibleStateImageBehavior = false;
             this.lvThemes.DoubleClick += new System.EventHandler(this.lvThemes_DoubleClick);
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(12, 14);
+            this.btnNew.Location = new System.Drawing.Point(12, 25);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(165, 34);
             this.btnNew.TabIndex = 8;
@@ -58,7 +58,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(192, 14);
+            this.btnEdit.Location = new System.Drawing.Point(192, 25);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(165, 34);
             this.btnEdit.TabIndex = 9;
@@ -67,7 +67,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(376, 14);
+            this.btnReset.Location = new System.Drawing.Point(376, 25);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(165, 34);
             this.btnReset.TabIndex = 10;
@@ -76,7 +76,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(560, 14);
+            this.btnDelete.Location = new System.Drawing.Point(560, 25);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(165, 34);
             this.btnDelete.TabIndex = 11;
