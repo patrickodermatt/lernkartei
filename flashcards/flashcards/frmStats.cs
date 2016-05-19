@@ -26,7 +26,7 @@ namespace flashcards
         {
             using (var context = new Lernkartei_Entities())
             {
-                MetroLabel lblName = new MetroLabel();
+                Label lblName = new Label();
                 lblName.Text = "learning progress for user " + username;
                 lblName.AutoSize = true;
                 lblName.Font = new Font("Arial", 25);
