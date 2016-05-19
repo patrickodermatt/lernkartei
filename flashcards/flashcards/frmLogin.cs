@@ -21,10 +21,20 @@ namespace flashcards
         {
             if (login())
             {
-                this.Hide();
-                frmMain frmMain = new frmMain(txtUsername.Text);
-                frmMain.Closed += (s, args) => this.Close();
-                frmMain.Show();
+                if(this.txtUsername.Text == "admin")
+                {
+                    this.Hide();
+                    frmMainAdmin frmMainAdmin = new frmMainAdmin(txtUsername.Text);
+                    frmMainAdmin.Closed += (s, args) => this.Close();
+                    frmMainAdmin.Show();
+                }
+                else
+                {
+                    this.Hide();
+                    frmMain frmMain = new frmMain(txtUsername.Text);
+                    frmMain.Closed += (s, args) => this.Close();
+                    frmMain.Show();
+                }
             }
         }
 
