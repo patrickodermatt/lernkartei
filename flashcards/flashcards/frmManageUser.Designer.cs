@@ -30,7 +30,7 @@
         {
             this.lvUser = new System.Windows.Forms.ListView();
             this.lblTheme = new MetroFramework.Controls.MetroLabel();
-            this.btnEdit = new MetroFramework.Controls.MetroButton();
+            this.btnReset = new MetroFramework.Controls.MetroButton();
             this.btnDelete = new MetroFramework.Controls.MetroButton();
             this.btnBack = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
@@ -56,20 +56,20 @@
             this.lblTheme.TabIndex = 8;
             this.lblTheme.Text = "Manage User";
             // 
-            // btnEdit
+            // btnReset
             // 
-            this.btnEdit.Location = new System.Drawing.Point(249, 63);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(230, 34);
-            this.btnEdit.TabIndex = 10;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnReset.Location = new System.Drawing.Point(381, 63);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(345, 34);
+            this.btnReset.TabIndex = 10;
+            this.btnReset.Text = "Reset Password";
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(13, 63);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(230, 34);
+            this.btnDelete.Size = new System.Drawing.Size(345, 34);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Delete";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -91,7 +91,7 @@
             this.ClientSize = new System.Drawing.Size(737, 344);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.lblTheme);
             this.Controls.Add(this.lvUser);
             this.MaximizeBox = false;
@@ -107,7 +107,7 @@
 
         private System.Windows.Forms.ListView lvUser;
         private MetroFramework.Controls.MetroLabel lblTheme;
-        private MetroFramework.Controls.MetroButton btnEdit;
+        private MetroFramework.Controls.MetroButton btnReset;
         private MetroFramework.Controls.MetroButton btnDelete;
         private MetroFramework.Controls.MetroButton btnBack;
 

@@ -24,7 +24,9 @@ namespace flashcards
         {
             using (var context = new Lernkartei_Entities())
             {
-                List<TbLogin> users = (from u in context.TbLogin select u).ToList();
+                List<TbLogin> users = (from u in context.TbLogin
+                                       where u.Username != "admin"
+                                       select u).ToList();
 
                 foreach (TbLogin user in users)
                 {
@@ -36,23 +38,6 @@ namespace flashcards
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-        //    if (lvCards.SelectedItems.Count != 0)
-        //    {
-        //        TbCard card;
-        //        string question = lvCards.SelectedItems[0].Text;
-        //        using (var context = new Lernkartei_Entities())
-        //        {
-        //            card = context.TbCard.Single(x => x.Question == question);
-        //        }
-        //        this.Hide();
-        //        frmNewCard newCard = new frmNewCard(this.username, this.theme, card);
-        //        newCard.Closed += (s, args) => comeBackFromCard();
-        //        newCard.Show();
-        //    }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -85,9 +70,23 @@ namespace flashcards
             }
         }
 
-        private void lvCards_DoubleClick(object sender, EventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
-            btnEdit_Click(sender, e);
+            if (lvUser.SelectedItems.Count != 0)
+            {
+                DialogResult result = MessageBox.Show("Sure?", "Reset Password", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    string usernameofuser = lvUser.SelectedItems[0].Text;
+                    using (var context = new Lernkartei_Entities())
+                    {
+                        TbLogin user = context.TbLogin.Single(x => x.Username == usernameofuser);
+                        user.Password = "1234";
+                        context.SaveChanges();
+                    }
+                }
+            }
         }
     }
 }
