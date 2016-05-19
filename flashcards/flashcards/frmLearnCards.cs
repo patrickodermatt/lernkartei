@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace flashcards
 {
-    public partial class frmLearnCards : Form
+    public partial class frmLearnCards : MetroFramework.Forms.MetroForm
     {
         private string themeName;
         private string username;
@@ -34,7 +34,7 @@ namespace flashcards
         private void SetFields()
         {
             this.Text = this.themeName + " Level: " + this.level;
-            this.lblQuestion.Text = this.question;
+            this.lblQuestion2.Text = this.question;
         }
 
         private void txtAnswer_KeyPress(object sender, KeyPressEventArgs e)
@@ -45,9 +45,9 @@ namespace flashcards
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if(this.txtAnswer.Text == this.answer)
+            if(this.txtAnswer2.Text == this.answer)
             {
-                MessageBox.Show(this.txtAnswer.Text + " is correct!", "Correct Answer");
+                MessageBox.Show(this.txtAnswer2.Text + " is correct!", "Correct Answer");
 
                 using (var context = new Lernkartei_Entities())
                 {
@@ -63,7 +63,7 @@ namespace flashcards
 
             else
             {
-                MessageBox.Show(this.txtAnswer.Text + " is not correct!" + Environment.NewLine + "The correct answer is: " + this.answer, "Incorrect Answer");
+                MessageBox.Show(this.txtAnswer2.Text + " is not correct!" + Environment.NewLine + "The correct answer is: " + this.answer, "Incorrect Answer");
             }
 
             this.Close();
