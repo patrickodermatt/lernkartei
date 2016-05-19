@@ -31,11 +31,12 @@
             this.btnLearn = new MetroFramework.Controls.MetroButton();
             this.btnStats = new MetroFramework.Controls.MetroButton();
             this.btnManage = new MetroFramework.Controls.MetroButton();
+            this.lnkPassword = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
             // 
             // btnLearn
             // 
-            this.btnLearn.Location = new System.Drawing.Point(23, 24);
+            this.btnLearn.Location = new System.Drawing.Point(25, 34);
             this.btnLearn.Name = "btnLearn";
             this.btnLearn.Size = new System.Drawing.Size(448, 104);
             this.btnLearn.TabIndex = 3;
@@ -44,7 +45,7 @@
             // 
             // btnStats
             // 
-            this.btnStats.Location = new System.Drawing.Point(239, 134);
+            this.btnStats.Location = new System.Drawing.Point(241, 144);
             this.btnStats.Name = "btnStats";
             this.btnStats.Size = new System.Drawing.Size(232, 104);
             this.btnStats.TabIndex = 4;
@@ -53,12 +54,21 @@
             // 
             // btnManage
             // 
-            this.btnManage.Location = new System.Drawing.Point(23, 134);
+            this.btnManage.Location = new System.Drawing.Point(25, 144);
             this.btnManage.Name = "btnManage";
             this.btnManage.Size = new System.Drawing.Size(210, 104);
             this.btnManage.TabIndex = 5;
             this.btnManage.Text = "Manage";
             this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
+            // 
+            // lnkPassword
+            // 
+            this.lnkPassword.Location = new System.Drawing.Point(23, 5);
+            this.lnkPassword.Name = "lnkPassword";
+            this.lnkPassword.Size = new System.Drawing.Size(98, 23);
+            this.lnkPassword.TabIndex = 6;
+            this.lnkPassword.Text = "reset Password";
+            this.lnkPassword.Click += new System.EventHandler(this.lnkPassword_Click);
             // 
             // frmMain
             // 
@@ -66,6 +76,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(496, 262);
+            this.Controls.Add(this.lnkPassword);
             this.Controls.Add(this.btnManage);
             this.Controls.Add(this.btnStats);
             this.Controls.Add(this.btnLearn);
@@ -82,6 +93,7 @@
         private MetroFramework.Controls.MetroButton btnLearn;
         private MetroFramework.Controls.MetroButton btnStats;
         private MetroFramework.Controls.MetroButton btnManage;
+        private MetroFramework.Controls.MetroLink lnkPassword;
 
 
     }

@@ -69,7 +69,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(34, 63);
+            this.metroLabel1.Location = new System.Drawing.Point(34, 62);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(71, 19);
             this.metroLabel1.TabIndex = 10;
@@ -78,7 +78,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(34, 92);
+            this.metroLabel2.Location = new System.Drawing.Point(34, 91);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(66, 19);
             this.metroLabel2.TabIndex = 11;
@@ -86,7 +86,8 @@
             // 
             // lnkRegister
             // 
-            this.lnkRegister.Location = new System.Drawing.Point(119, 121);
+            this.lnkRegister.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lnkRegister.Location = new System.Drawing.Point(177, 121);
             this.lnkRegister.Name = "lnkRegister";
             this.lnkRegister.Size = new System.Drawing.Size(75, 23);
             this.lnkRegister.TabIndex = 12;
@@ -95,7 +96,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(129, 63);
+            this.txtUsername.Location = new System.Drawing.Point(129, 62);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(123, 23);
             this.txtUsername.TabIndex = 13;
@@ -103,7 +104,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(129, 92);
+            this.txtPassword.Location = new System.Drawing.Point(129, 91);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(123, 23);
@@ -125,6 +126,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lblLogin);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";
