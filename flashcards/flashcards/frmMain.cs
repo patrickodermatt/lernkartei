@@ -42,5 +42,11 @@ namespace flashcards
             frmStats.Closed += (s, args) => this.Show();
             frmStats.Show();
         }
+
+        private void lnkPassword_Click(object sender, EventArgs e)
+        {
+            frmPassword frmPassword = new frmPassword(this.username);
+            frmPassword.ShowDialog();
+        }
     }
 }
