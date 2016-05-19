@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace flashcards
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : MetroFramework.Forms.MetroForm
     {
         public frmLogin()
         {
@@ -36,7 +36,7 @@ namespace flashcards
 
                 if(person == null)
                 {
-                    MessageBox.Show("User not found");
+                   MessageBox.Show("User not found");
                     return false;
                 }
 
@@ -51,14 +51,6 @@ namespace flashcards
             }
         }
 
-        private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            frmRegister register = new frmRegister();
-            register.Closed += (s, args) => this.Show();
-            register.Show();
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -68,6 +60,14 @@ namespace flashcards
         {
             if (e.KeyChar == 13)
                 btnOk_Click(sender, e);
+        }
+
+        private void lnkRegister_LinkClicked(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmRegister register = new frmRegister();
+            register.Closed += (s, args) => this.Show();
+            register.Show();
         }
     }
 }
