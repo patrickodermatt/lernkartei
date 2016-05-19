@@ -40,29 +40,29 @@ namespace flashcards
 
         private void lvThemes_DoubleClick(object sender, EventArgs e)
         {
-            if (lvThemes.SelectedItems[0] != null)
+            if (lvThemes.SelectedItems.Count != 0)
             {
                 ListViewItem selectedItem = lvThemes.SelectedItems[0];
 
                 using (var context = new Lernkartei_Entities())
                 {
                     long minLvls = (from p in context.TbProgress
-                        join l in context.TbLogin on p.fk_UserID equals l.UserID
-                        join c in context.TbCard on p.fk_CardID equals c.CardID
-                        join t in context.TbTheme on c.fk_ThemeID equals t.ThemeID
-                        where l.Username == this.username
-                        where t.ThemeName == selectedItem.Text
-                        orderby p.Level ascending
-                        select p.Level).First();
+                                    join l in context.TbLogin on p.fk_UserID equals l.UserID
+                                    join c in context.TbCard on p.fk_CardID equals c.CardID
+                                    join t in context.TbTheme on c.fk_ThemeID equals t.ThemeID
+                                    where l.Username == this.username
+                                    where t.ThemeName == selectedItem.Text
+                                    orderby p.Level ascending
+                                    select p.Level).First();
 
                     this.listOfCards = (from p in context.TbProgress
-                        join l in context.TbLogin on p.fk_UserID equals l.UserID
-                        join c in context.TbCard on p.fk_CardID equals c.CardID
-                        join t in context.TbTheme on c.fk_ThemeID equals t.ThemeID
-                        where l.Username == this.username
-                        where p.Level == minLvls
-                        where t.ThemeName == selectedItem.Text
-                        select p).ToList();
+                                        join l in context.TbLogin on p.fk_UserID equals l.UserID
+                                        join c in context.TbCard on p.fk_CardID equals c.CardID
+                                        join t in context.TbTheme on c.fk_ThemeID equals t.ThemeID
+                                        where l.Username == this.username
+                                        where p.Level == minLvls
+                                        where t.ThemeName == selectedItem.Text
+                                        select p).ToList();
 
                     this.Hide();
                     openCards(selectedItem.Text);
@@ -80,7 +80,7 @@ namespace flashcards
                 frmLearnCards frmLearnCards = new frmLearnCards(themeName, this.username, this.listOfCards[CardCounter].TbCard.Question, this.listOfCards[CardCounter].TbCard.Answer, this.listOfCards[CardCounter].Level, this.listOfCards[CardCounter].ProgressID);
                 frmLearnCards.ShowDialog();
                 CardCounter++;
-            }            
+            }
         }
     }
 }
