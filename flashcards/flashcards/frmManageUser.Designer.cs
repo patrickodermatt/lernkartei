@@ -44,7 +44,6 @@
             this.lvUser.Size = new System.Drawing.Size(712, 184);
             this.lvUser.TabIndex = 3;
             this.lvUser.UseCompatibleStateImageBehavior = false;
-            this.lvUser.DoubleClick += new System.EventHandler(this.lvCards_DoubleClick);
             // 
             // lblTheme
             // 
