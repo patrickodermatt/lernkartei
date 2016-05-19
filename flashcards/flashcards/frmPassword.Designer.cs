@@ -43,18 +43,18 @@
             // 
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.Location = new System.Drawing.Point(105, 15);
+            this.lblLogin.Location = new System.Drawing.Point(50, 14);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(70, 25);
+            this.lblLogin.Size = new System.Drawing.Size(182, 25);
             this.lblLogin.TabIndex = 0;
-            this.lblLogin.Text = "Login";
+            this.lblLogin.Text = "Reset Password";
             // 
             // btnOK
             // 
             this.btnOK.Location = new System.Drawing.Point(34, 150);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(106, 23);
-            this.btnOK.TabIndex = 8;
+            this.btnOK.TabIndex = 4;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -91,7 +91,7 @@
             this.txtNew1.Name = "txtNew1";
             this.txtNew1.PasswordChar = '●';
             this.txtNew1.Size = new System.Drawing.Size(123, 23);
-            this.txtNew1.TabIndex = 14;
+            this.txtNew1.TabIndex = 2;
             this.txtNew1.UseSystemPasswordChar = true;
             // 
             // txtNew2
@@ -100,7 +100,7 @@
             this.txtNew2.Name = "txtNew2";
             this.txtNew2.PasswordChar = '●';
             this.txtNew2.Size = new System.Drawing.Size(123, 23);
-            this.txtNew2.TabIndex = 16;
+            this.txtNew2.TabIndex = 3;
             this.txtNew2.UseSystemPasswordChar = true;
             // 
             // lblNew2
@@ -118,7 +118,7 @@
             this.txtOld.Name = "txtOld";
             this.txtOld.PasswordChar = '●';
             this.txtOld.Size = new System.Drawing.Size(123, 23);
-            this.txtOld.TabIndex = 17;
+            this.txtOld.TabIndex = 1;
             this.txtOld.UseSystemPasswordChar = true;
             // 
             // frmPassword
