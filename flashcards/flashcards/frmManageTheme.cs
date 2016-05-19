@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace flashcards
 {
-    public partial class frmManageTheme : Form
+    public partial class frmManageTheme : MetroFramework.Forms.MetroForm
     {
         private string username;
         private TbTheme theme;
