@@ -93,7 +93,6 @@ namespace flashcards
                                 context.TbCard.Remove(card);
                             }
                         }
-
                         context.TbTheme.Remove(theme);
                         context.SaveChanges();
                     }
@@ -108,6 +107,34 @@ namespace flashcards
             lvThemes.Items.Clear();
             ShowThemes();
             this.Show();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            if (lvThemes.SelectedItems.Count != 0)
+            { 
+                DialogResult result = MessageBox.Show("Sure?", "Reset Theme", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    string themeName = lvThemes.SelectedItems[0].Text;
+                    using (var context = new Lernkartei_Entities())
+                    {
+                        TbTheme theme = context.TbTheme.Single(x => x.ThemeName == themeName);
+                        var cards = (from c in context.TbCard
+                                     where c.fk_ThemeID == theme.ThemeID
+                                     select c).ToList();
+
+                        var user = context.TbLogin.Single(x => x.Username == username);
+                        foreach (TbCard card in cards)
+                        {
+                            var progress = context.TbProgress.Single(x => x.fk_CardID == card.CardID && x.fk_UserID == user.UserID);
+                            progress.Level = 0;
+                        }
+                        context.SaveChanges();
+                    }
+                }
+            }
         }
     }
 }
