@@ -19,7 +19,7 @@ namespace flashcards
         private long level;
         private long progressID;
 
-        public frmLearnCards(string themeName, string username , string question, string answer, long level, long progressID)
+        public frmLearnCards(string themeName, string username, string question, string answer, long level, long progressID)
         {
             InitializeComponent();
             this.themeName = themeName;
@@ -45,7 +45,7 @@ namespace flashcards
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if(this.txtAnswer.Text == this.answer)
+            if (this.txtAnswer.Text == this.answer)
             {
                 MessageBox.Show(this.txtAnswer.Text + " is correct!", "Correct Answer");
 
@@ -53,7 +53,7 @@ namespace flashcards
                 {
                     TbProgress progress = context.TbProgress.SingleOrDefault(p => p.ProgressID == this.progressID);
 
-                    if(progress.Level < 7) //max Level = 7
+                    if (progress.Level < 7) //max Level = 7
                     {
                         progress.Level++;
                         context.SaveChanges();
@@ -64,6 +64,13 @@ namespace flashcards
             else
             {
                 MessageBox.Show(this.txtAnswer.Text + " is not correct!" + Environment.NewLine + "The correct answer is: " + this.answer, "Incorrect Answer");
+
+                using (var context = new Lernkartei_Entities())
+                {
+                    TbProgress progress = context.TbProgress.SingleOrDefault(p => p.ProgressID == this.progressID);
+                    progress.Level = 0;
+                    context.SaveChanges();
+                }
             }
 
             this.Close();
