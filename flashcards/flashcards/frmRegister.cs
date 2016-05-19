@@ -58,7 +58,21 @@ namespace flashcards
         {
             using (var context = new Lernkartei_Entities())
             {
-                context.TbLogin.Add(new TbLogin { UserID=3, Username = this.txtUsername.Text, Password = this.txtPassword.Text });
+                TbLogin newUser = new TbLogin { Username = this.txtUsername.Text, Password = this.txtPassword.Text };
+                context.TbLogin.Add(newUser);
+
+                var themes = (from t in context.TbTheme select t).ToList();
+                foreach (TbTheme theme in themes)
+                {
+                    var cards = (from c in context.TbCard
+                                 where c.fk_ThemeID == theme.ThemeID
+                                 select c).ToList();
+                    foreach (TbCard card in cards)
+                    {
+                        context.TbProgress.Add(new TbProgress { fk_CardID = card.CardID, fk_UserID = newUser.UserID, Level = 0 });
+                    }
+                }
+
                 context.SaveChanges();
             }
         }

@@ -51,7 +51,7 @@ namespace flashcards
 
         private void lvThemes_DoubleClick(object sender, EventArgs e)
         {
-            if (lvThemes.SelectedItems[0] != null)
+            if (lvThemes.SelectedItems.Count != 0)
             {
                 ListViewItem selectedItem = lvThemes.SelectedItems[0];
 
@@ -68,7 +68,7 @@ namespace flashcards
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (lvThemes.SelectedItems[0] != null)
+            if (lvThemes.SelectedItems.Count != 0)
             {
                 DialogResult result = MessageBox.Show("Sure?", "Delete Theme", MessageBoxButtons.YesNo);
 

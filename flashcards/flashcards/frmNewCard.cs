@@ -89,10 +89,7 @@ namespace flashcards
 
                 foreach (TbLogin user in context.TbLogin)
                 {
-                    TbProgress progress = new TbProgress();
-                    progress.fk_UserID = user.UserID;
-                    progress.fk_CardID = card.CardID;
-                    progress.Level = 0;
+                    TbProgress progress = new TbProgress { fk_UserID = user.UserID, fk_CardID = card.CardID, Level = 0 };
                     context.TbProgress.Add(progress);
                 }
                 context.SaveChanges();

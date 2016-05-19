@@ -60,7 +60,7 @@ namespace flashcards
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (lvCards.SelectedItems[0] != null)
+            if (lvCards.SelectedItems.Count != 0)
             {
                 TbCard card;
                 string question = lvCards.SelectedItems[0].Text;
@@ -77,7 +77,7 @@ namespace flashcards
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (lvCards.SelectedItems[0] != null)
+            if (lvCards.SelectedItems.Count != 0)
             {
                 DialogResult result = MessageBox.Show("Sure?", "Delete Card", MessageBoxButtons.YesNo);
 

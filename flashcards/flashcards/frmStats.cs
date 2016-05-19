@@ -65,7 +65,14 @@ namespace flashcards
                             select c).ToList();
 
                         VerticalProgressBar verticalProgressBar = new VerticalProgressBar();
-                        verticalProgressBar.Value = (100 / totalCards) * cards.Count();
+                        if(totalCards == 0)
+                        {
+                            verticalProgressBar.Value = 0;
+                        }
+                        else
+                        {
+                            verticalProgressBar.Value = (100 / totalCards) * cards.Count();
+                        }
                         verticalProgressBar.Width = 30;
                         verticalProgressBar.Height = 100;
                         verticalProgressBar.Location = new System.Drawing.Point(cardOffset, themeNameOffset - 170);
