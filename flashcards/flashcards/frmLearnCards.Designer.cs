@@ -28,22 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOk = new System.Windows.Forms.Button();
-            this.txtAnswer = new System.Windows.Forms.TextBox();
-            this.lblQuestion = new System.Windows.Forms.Label();
-            this.lblAnswer = new System.Windows.Forms.Label();
+            this.btnOk = new MetroFramework.Controls.MetroButton();
+            this.lblQuestion = new MetroFramework.Controls.MetroLabel();
+            this.lblAnswer = new MetroFramework.Controls.MetroLabel();
+            this.txtAnswer = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
             // 
             // btnOk
             // 
-            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Location = new System.Drawing.Point(12, 305);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(713, 34);
-            this.btnOk.TabIndex = 2;
+            this.btnOk.TabIndex = 6;
             this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // lblQuestion
+            // 
+            this.lblQuestion.AutoSize = true;
+            this.lblQuestion.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblQuestion.Location = new System.Drawing.Point(13, 17);
+            this.lblQuestion.Name = "lblQuestion";
+            this.lblQuestion.Size = new System.Drawing.Size(89, 25);
+            this.lblQuestion.TabIndex = 7;
+            this.lblQuestion.Text = "Question?";
+            // 
+            // lblAnswer
+            // 
+            this.lblAnswer.AutoSize = true;
+            this.lblAnswer.Location = new System.Drawing.Point(13, 111);
+            this.lblAnswer.Name = "lblAnswer";
+            this.lblAnswer.Size = new System.Drawing.Size(55, 19);
+            this.lblAnswer.TabIndex = 8;
+            this.lblAnswer.Text = "Answer:";
             // 
             // txtAnswer
             // 
@@ -51,39 +68,23 @@
             this.txtAnswer.Multiline = true;
             this.txtAnswer.Name = "txtAnswer";
             this.txtAnswer.Size = new System.Drawing.Size(712, 166);
-            this.txtAnswer.TabIndex = 3;
-            this.txtAnswer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnswer_KeyPress);
-            // 
-            // lblQuestion
-            // 
-            this.lblQuestion.AutoSize = true;
-            this.lblQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestion.Location = new System.Drawing.Point(12, 22);
-            this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(119, 25);
-            this.lblQuestion.TabIndex = 4;
-            this.lblQuestion.Text = "Question?";
-            // 
-            // lblAnswer
-            // 
-            this.lblAnswer.AutoSize = true;
-            this.lblAnswer.Location = new System.Drawing.Point(12, 117);
-            this.lblAnswer.Name = "lblAnswer";
-            this.lblAnswer.Size = new System.Drawing.Size(45, 13);
-            this.lblAnswer.TabIndex = 5;
-            this.lblAnswer.Text = "Answer:";
+            this.txtAnswer.TabIndex = 9;
+            this.txtAnswer.Text = "metroTextBox1";
             // 
             // frmLearnCards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(737, 354);
+            this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.lblAnswer);
             this.Controls.Add(this.lblQuestion);
-            this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.btnOk);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLearnCards";
-            this.Text = "Flashcards Administration";
+            this.Resizable = false;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,10 +92,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.TextBox txtAnswer;
-        private System.Windows.Forms.Label lblQuestion;
-        private System.Windows.Forms.Label lblAnswer;
+        private MetroFramework.Controls.MetroButton btnOk;
+        private MetroFramework.Controls.MetroLabel lblQuestion;
+        private MetroFramework.Controls.MetroLabel lblAnswer;
+        private MetroFramework.Controls.MetroTextBox txtAnswer;
 
 
 
