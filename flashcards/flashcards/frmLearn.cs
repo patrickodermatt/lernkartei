@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace flashcards
 {
-    public partial class frmLearn : Form
+    public partial class frmLearn : MetroFramework.Forms.MetroForm
     {
         private string username;
         private List<TbProgress> listOfCards;

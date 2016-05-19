@@ -50,7 +50,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(34, 172);
+            this.btnOK.Location = new System.Drawing.Point(34, 150);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(106, 23);
             this.btnOK.TabIndex = 8;
@@ -59,7 +59,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(146, 172);
+            this.btnCancel.Location = new System.Drawing.Point(146, 150);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(106, 23);
             this.btnCancel.TabIndex = 9;
@@ -116,7 +116,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
-            this.ClientSize = new System.Drawing.Size(290, 223);
+            this.ClientSize = new System.Drawing.Size(290, 192);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lnkRegister);
