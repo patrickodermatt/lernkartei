@@ -33,7 +33,7 @@ namespace flashcards
 
         private void SetFields()
         {
-            this.Text = this.themeName + " Level: " + this.level;
+            this.lblTitle.Text = this.themeName + " Level: " + this.level;
             this.lblQuestion.Text = this.question;
         }
 

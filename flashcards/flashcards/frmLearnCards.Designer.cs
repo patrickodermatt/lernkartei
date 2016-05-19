@@ -32,6 +32,7 @@
             this.lblQuestion = new MetroFramework.Controls.MetroLabel();
             this.lblAnswer = new MetroFramework.Controls.MetroLabel();
             this.txtAnswer = new MetroFramework.Controls.MetroTextBox();
+            this.lblTitle = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // btnOk
@@ -46,8 +47,7 @@
             // lblQuestion
             // 
             this.lblQuestion.AutoSize = true;
-            this.lblQuestion.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblQuestion.Location = new System.Drawing.Point(13, 17);
+            this.lblQuestion.Location = new System.Drawing.Point(13, 51);
             this.lblQuestion.Name = "lblQuestion";
             this.lblQuestion.Size = new System.Drawing.Size(89, 25);
             this.lblQuestion.TabIndex = 7;
@@ -71,12 +71,23 @@
             this.txtAnswer.TabIndex = 9;
             this.txtAnswer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnswer_KeyPress);
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblTitle.Location = new System.Drawing.Point(13, 16);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(79, 25);
+            this.lblTitle.TabIndex = 10;
+            this.lblTitle.Text = "tempText";
+            // 
             // frmLearnCards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(737, 354);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.lblAnswer);
             this.Controls.Add(this.lblQuestion);
@@ -96,6 +107,7 @@
         private MetroFramework.Controls.MetroLabel lblQuestion;
         private MetroFramework.Controls.MetroLabel lblAnswer;
         private MetroFramework.Controls.MetroTextBox txtAnswer;
+        private MetroFramework.Controls.MetroLabel lblTitle;
 
 
 
