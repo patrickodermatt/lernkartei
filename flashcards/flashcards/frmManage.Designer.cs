@@ -28,24 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new System.Windows.Forms.Button();
             this.lvThemes = new System.Windows.Forms.ListView();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
+            this.btnNew = new MetroFramework.Controls.MetroButton();
+            this.btnEdit = new MetroFramework.Controls.MetroButton();
+            this.btnReset = new MetroFramework.Controls.MetroButton();
+            this.btnDelete = new MetroFramework.Controls.MetroButton();
+            this.btnBack = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
-            // 
-            // btnBack
-            // 
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(12, 305);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(713, 34);
-            this.btnBack.TabIndex = 2;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // lvThemes
             // 
@@ -60,73 +49,77 @@
             // 
             // btnNew
             // 
-            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.Location = new System.Drawing.Point(12, 12);
+            this.btnNew.Location = new System.Drawing.Point(12, 14);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(165, 34);
-            this.btnNew.TabIndex = 4;
+            this.btnNew.TabIndex = 8;
             this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(195, 12);
+            this.btnEdit.Location = new System.Drawing.Point(192, 14);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(165, 34);
-            this.btnEdit.TabIndex = 5;
+            this.btnEdit.TabIndex = 9;
             this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(560, 12);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(165, 34);
-            this.btnDelete.TabIndex = 6;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnReset
             // 
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(380, 12);
+            this.btnReset.Location = new System.Drawing.Point(376, 14);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(165, 34);
-            this.btnReset.TabIndex = 7;
+            this.btnReset.TabIndex = 10;
             this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(560, 14);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(165, 34);
+            this.btnDelete.TabIndex = 11;
+            this.btnDelete.Text = "Delete";
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(12, 297);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(713, 34);
+            this.btnBack.TabIndex = 12;
+            this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // frmManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 354);
-            this.Controls.Add(this.btnReset);
+            this.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
+            this.ClientSize = new System.Drawing.Size(737, 343);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.lvThemes);
-            this.Controls.Add(this.btnBack);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmManage";
-            this.Text = "Flashcards Administration";
+            this.Resizable = false;
+            this.Click += new System.EventHandler(this.btnDelete_Click);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ListView lvThemes;
-        private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnReset;
+        private MetroFramework.Controls.MetroButton btnNew;
+        private MetroFramework.Controls.MetroButton btnEdit;
+        private MetroFramework.Controls.MetroButton btnReset;
+        private MetroFramework.Controls.MetroButton btnDelete;
+        private MetroFramework.Controls.MetroButton btnBack;
 
 
 
